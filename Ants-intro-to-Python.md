@@ -6,15 +6,15 @@ Python is a high-level programming language, which is accessible for beginners, 
 
 Programming is the act of writing commands i.e. lines of code, which instruct the computer to carry out an operation. Computers operate on binary (1s and 0s), and of course, humans don't speak binary, therefore we need abstraction layers to translate instructions we provide with Python commands, into binary operations the computer can run; we also rely upon translation layers in the other direction, to take binary output, and turn it into something humans can understand.
 
->Python is an interpreted language, which means when you run it the Python 'interpreter' reads each line of code, in sequence, and translates the code into operations that the computer can process. By comparison, a compiled language does all of the translation in advance before you run your code. Apps developed in a compiled language can often run faster and use less resources, but they can also be more challenging during development, because compiling can be a slow process.
+>Python is an interpreted language, which means when you run it the Python *interpreter* reads each line of code, in sequence, and translates the code into operations that the computer can process. By comparison, a compiled language does all of the translation in advance before you run your code. Apps developed in a compiled language can often run faster and use less resources, but they can also be more challenging during development, because compiling can be a slow process.
 
 ## Programming in Python
 
 There are several paradigms for how you can approach writing code:
 
-- Procedural: code which is executed, in order, sequentially.
-- Event-Driven: code which is executed in response to events; these can be key presses, mouse clicks, mouse movement, etc. You code a response to the action, and it is triggered when the action occurs. A key difference vs. procedural coding is that actions in event-driven applications may happen in any order.
-- Object-Oriented Programming (OOP): A more complex approach, but common and powerful. Diffferent elements within your program and environment are represented by objects (a logical representation of the element), and you code the various actions (functions) that can be performed with these objects; different types of objects, can have different functions available to them.
+- **Procedural**: code which is executed, in order, sequentially.
+- **Event-Driven**: code which is executed in response to events; these can be key presses, mouse clicks, mouse movement, etc. You code a response to the action, and it is triggered when the action occurs. A key difference vs. procedural coding is that actions in event-driven applications may happen in any order.
+- **Object-Oriented Programming (OOP)**: A more complex approach, but common and powerful. Diffferent elements within your program and environment are represented by objects (a logical representation of the element), and you code the various actions (functions) that can be performed with these objects; different types of objects, can have different functions available to them.
 
 ### What is a Program
 
@@ -22,25 +22,25 @@ We can write programs to carry out a range of different operations, however they
 
 - Accept input, from the user, from events, from API calls, etc.
 - Process the input, which may involve operating on the input, or it may be a trigger to process other elements.
-- The application will need access to storage: fast RAM for the duration of the application's runtime; persistent storage if data needs to outlive the application.
-- Finally the application needs to produce some form of output. The output could be text based, more complex apps can produce other visual elements such as graphics and audio, such as in a game; the application may not need to produce any obvious visual output, it may just be a confirmation or error message, or even just a status code.
+- Access storage: fast RAM for the duration of the application's runtime; persistent storage if data needs to outlive the application.
+- Produce some form of output. The output could be text based, more complex apps can produce other visual elements such as graphics and audio, such as in a game; the application may not need to produce any obvious visual output, it may just be a confirmation, error message, or even just a status code.
 
 ### Python Modes
 
-Windows (or MacOS, or Linux) doesn't come with Python available by default, Microsoft doesn't make Python, so we need to install it like any other application. Once you have done so, you can use it in two different ways:
+Windows (or MacOS, or Linux) doesn't come with Python available by default, since Microsoft doesn't make Python, so we need to install it like any other application. Download and install it from [here](www.python.org). Once you have done so, you can use it in two different ways:
 
-- Interactive mode: from a Terminal run the command python, you will see a few lines of text indicating your Python version, and a few help commands. Then you see the Python prompt `>>>`, from where you can run individual lines of code. This mode is useful for quickly validating or testing something, you can also use it like a simple calculator. But this environment is very limited, for example saving you code to re-run it later is difficult. Exit interactive mode with `exit()`.
-- Script mode: we write our Python commands in plain text, in a file Python file, which ends with a `.py` extension. We can write our code in this file, edit and maintain it just like any text file. This is how we'll write our applications.
+- **Interactive mode**: from a Terminal run the command `python`, you will see a few lines of text indicating your Python version, and a few help commands. Then you'll see the Python prompt `>>>`, from where you can run individual lines of code. This mode is useful for quickly validating or testing syntax, you can also use it like a simple calculator. But this environment is very limited, you're typically running one command at a time, and saving you code to re-run it later is difficult. Exit interactive mode with `exit()`.
+- **Script mode**: we write our Python commands in plain text, in a file Python file, which ends with a `.py` extension. We can write our code in this file, edit and maintain it just like any text file. This is how we'll write our applications.
 
->Do NOT write code in a word processor, use a text editor such as Notepad++, or even better, an integrated development environment (IDE) such as Visual Studio Code. This is because word processors include hidden characters to facilitate the different formatting you apply, and these characters can be included when you copy/paste code, resulting in unexpected errors when running it.
+>Do **NOT** write code in a word processor, use a text editor such as Notepad++, or even better, an integrated development environment (IDE) such as **Visual Studio Code**. This is because word processors include hidden characters to facilitate the different formatting you apply, and these characters can be included when you copy/paste code, resulting in unexpected errors when running it.
 
 ## Variables
 
-Beyond entering expressions using specific values, like using a calculator (e.g. `3 * 9 + 5`), the first thing we need to learn to use to make our code more useful are variables.
+Beyond entering expressions using specific values, like using a graphical calculator (e.g. `3 * 9 + 5`), the first thing we need to learn how to use to make our code more useful are `variables`.
 
-Variables are simply containers for data, we can assign values to variables which we can then re-use over and over throughout our app. This provides lots of benefits you will appreciate as you write your own code, but to begin with they allow us to reduce repetition, and also provide consistency, because the value will always be what you last set it to. They can also reduce errors, because relying upon humans to recall and enter the correct values manually is always going to be prone to errors.
+Variables are simply containers for data, we can assign values to variables which we can then re-use over and over throughout our app. This provides lots of benefits you will appreciate as you write your own code, but to begin with they allow us to **reduce repetition**, and also provide **consistency**, because the value will always be what you last set it to. They can also **reduce errors**, because relying upon humans to recall and enter the correct values manually is always going to be prone to errors.
 
-We can assign any data we need to our variables using the = symbol
+We can assign any data we need to our variables using the `=` symbol
 
 ```py
 age = 30
@@ -51,16 +51,16 @@ height_meters = 1.8
 
 Python support a number of different data types, three are demonstrated above:
 
-- Integers (positive or negative whole numbers)
-- Strings (text values)
-- Boolean (True or False)
-- Float (positive or negative decimal numbers)
+- **Integers** - positive or negative whole numbers
+- **Strings** - text data
+- **Boolean** - `True` or `False`
+- **Float** - positive or negative decimal numbers
 
 In Python some of the other objects we create, such as `lists`, `tuples`, `dictionaries`, and more are also considered data types.
 
 You can query the type of data stored in a variable with the `type()` method
 
-We can utilise a range of built in operators against the values in our code, usually when they're assigned to variables. Below you can see examples of the most common arithmetic and comparison operators.
+We can utilise a range of built in operators against the values in our code, usually when they're assigned to variables. Below you can see examples of the most common arithmetic and comparison operators and how they can be used.
 
 ```py
 age = 30
@@ -71,6 +71,7 @@ print(type(age))
 a = 5
 b = 10
 
+# Print data types
 print(type(a))
 print(type(b))
 
@@ -127,9 +128,9 @@ my_var **= 5 # raise my_var to the power of 5
 
 Although some of the comparison and assignment operators can be used with strings, we do need to think about them differently. Numbers don't have upper and lowercase characters, for example.
 
-Strings are text based data, but that doesn't mean only letters and words, for example dates, times, and phone numbers are values we want to treat as text. We don't want to divide our phone number by two, or round it up. We need to ensure that Python knows these values are treated as strings.
+`Strings` are text based data, but that doesn't mean only letters and words, for example dates, times, and phone numbers are values we want to treat as text. We don't want to divide our phone number by two, or round it up. We need to ensure that Python knows these values are treated as strings.
 
-Declare a string by enclosing it in single or double speech marks
+Declare a string by enclosing it in single `' '` or double `" "` speech marks.
 
 ```py
 my_string = "Hello world" # assign a variable to a string
@@ -159,9 +160,9 @@ c += "moon"
 print(c)
 ```
 
-### String Interpolation
+### String Interpolation and f-strings
 
-A common task is combining strings with your variables in order to customise the output, there are two ways to do so.
+A common task is combining strings and variables to customise the output, there are two common ways to do so, and you may come across both.
 
 ```py
 a = "Frankie"
@@ -171,7 +172,7 @@ print("Ant's sausages are called " + a  + " and " + b)
 print(f"Ant's sausages are called {a} and {b}")
 ```
 
-The first method requires you to separate each element of your desired output, the fixed text, and the variables, and combine them together manually. The second method is to use f-strings, which is a more modern approach, and allows you to embed your variables without opening and closing your strings frequently.
+The first method requires you to separate each element of your desired output, the fixed text, and the variables, and combine them together manually. The second method is to use `f-strings`, which is a more modern approach, and allows you to embed your variables without opening and closing your strings frequently.
 
 There is another way that f-strings make life slightly easier, which is that they don't require you to specify the data type.
 
@@ -188,12 +189,8 @@ print(f"{a} is {age_a} and {b} is {age_b}") # This one succeeds
 To make the first example work, you need to explicitly convert the numeric values into strings using the `str()` method.
 
 ```py
-a = "Frankie"
-b = "Scout"
-age_a = 3
-age_b = 6
-
-print(a + " is " + str(age_a) + " and " + b + " is " + str(age_b)) # This one fails
+... # three dots in a guide like this is commonly used to represent omitted repetitive code
+print(a + " is " + str(age_a) + " and " + b + " is " + str(age_b))
 ```
 
 We can also do the opposite, if we have a value declared as a string but need to use it as an integer we can use `int()`.
@@ -203,7 +200,7 @@ We can also do the opposite, if we have a value declared as a string but need to
 There is one more important concept to understand early on, it applies to many different object types in Python, called `methods`. Methods are the built in functionality available to the objects we create, there are different methods available for lists, for dictionaries, and in this below case, strings.
 
 ```py
-name = "antony foy"
+name = "rick james"
 
 print(name.upper()) # Convert to uppercase
 print(name.title()) # Capitalise every word
@@ -229,7 +226,7 @@ Once we have captured the user input, we can then assign it to a variable, and p
 
 ## Working with Lists
 
-So far we've been working with and assigning single values to our variables; lists are containers in which we can store zero or more values. The elements in a list can be any data type, and mixed within the same list; elements are also ordered by their index number.
+So far we've been working with and assigning single values to our variables; lists are containers in which we can store zero or more values. The elements in a list can be any data type, and mixed within the same list; elements are also ordered by their `index` number.
 
 ### List Indexing
 
@@ -258,9 +255,9 @@ print(people_list[3])
 
 #### Slicing a List
 
-We can use the index numbers to select multiple adjacent items at once, called a slice, we provide the starting and ending index, and a colon `[x:y]`
+We can use the index numbers to select multiple adjacent items at once, called a `slice`, we provide the starting and ending index, and a colon `[x:y]`
 
-**IMPORTANT**: The slice starts at the first index number, and stops at the item before the second index, like the off-by-one error, incorrect indexing can produce unexpected results.
+**IMPORTANT**: The slice starts at the first index number, and stops at the item before the second index, like the *off-by-one error*, incorrect indexing can produce unexpected results.
 
 ```py
 people_list = ["Ant", "Rachel", "Segun", "Sarmistha"]
@@ -308,7 +305,7 @@ print(names_list)
 
 So far our code has been pretty much following the procedural paradigm, we've written lines of code, and each one is processed, and the expected output is returned. However, we quickly hit limits with this approach because there is only one path from start to end, so our code cannot account for different scenarios.
 
-If statements allow us to make decisions in our code, by providing different outputs depending upon the result of a test you can define. If the outcome of the test is True then some code is run, if the test is False, something else can happen.
+If statements allow us to make decisions in our code, by providing different outputs depending upon the result of a test you can define. If the outcome of the test is `True` then some code is run, if the test is `False`, something else happens.
 
 The most commonly used tests will utilise the comparison operators that we reviewed earlier, but more complex tests can be created. However, the output of your test should always be a boolean value (True/False).
 
@@ -395,7 +392,7 @@ else:
     print("Come on in, the trauma is on you!")
 ```
 
-Some of the last examples we've used have started to relate a bit more to the real, giving different responses to different people, or checking film ratings. If statements are one of the ways we can start to represent or **model** more complex scenarios through our code.
+Some of the last examples we've used have started to relate a bit more to the real-world: giving different responses to different people; checking film ratings. If statements are one of the ways we can start to represent or **model** more complex scenarios through our code.
 
 ## Exercises
 
