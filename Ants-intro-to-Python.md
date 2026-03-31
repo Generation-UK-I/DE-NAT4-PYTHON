@@ -401,6 +401,6 @@ Some of the last examples we've used have started to relate a bit more to the re
 
 Below are some exercises to reinforce some of the different concepts we've covered.
 
-[variables exercises](./exercises/variables-exercise.md)
-[lists exercises](./exercises/intro-lists-exercises.md)
-[python exercises](./exercises/python-1-exercises.md)
+- [variables exercises](./exercises/variables-exercise.md)
+- [lists exercises](./exercises/intro-lists-exercises.md)
+- [python exercises](./exercises/python-1-exercises.md)
