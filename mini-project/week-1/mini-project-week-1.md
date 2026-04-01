@@ -18,6 +18,10 @@ As a user I want to:
 - A `product` should just be a `string` containing its name, i.e: `"Mocha"`
 - A list of `products` should be a list of `strings`, i.e: `["Mocha", "Americano"]`
 
+## Even better if
+
+- The program should keep running while you navigate the menus
+
 ## Pseudo Code
 
 ```txt
