@@ -233,8 +233,6 @@ car_dict = {
     '0 - 62mph' : 5.1,
     'AWD' : True
 }
-
-print(car_dict[1])
 ```
 
 ### Accessing Values in a Dictionary
@@ -486,7 +484,7 @@ print("Hello world)
 
 So far you've written an awful lot of code, but it all runs in a specified order; the Python interpreter starts at the top, and works it's way down your lines of code. Even our loops and if statements, there may be code that doesn't run, but when you run your code, the if statement **will** execute.
 
-What if we want more flexibility? What if we want to let the user choose which code runs, and when? We can achieve this with functions. 
+What if we want more flexibility? What if we want to let the user choose which code runs, and when? We can achieve this with functions.
 
 Functions are re-useable blocks of code that typically perform a single task, which is likely to be needed more than once. Consider an `add-user` function - You don't necessarily know when you need to add new users but you will need to do it regularly, and it needs to work the same way each time.
 
