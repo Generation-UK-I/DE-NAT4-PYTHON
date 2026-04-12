@@ -4,17 +4,17 @@ The software we broadly refer to as `Linux` is actually derived from an earlier 
 
 >Linus Torvalds basically re-wrote the proprietary UNIX kernel by hand, then gave it away for free under the `GNU General Public License`, permitting anyone to share and modify it freely.
 
-The majority of operating systems in use today have been developed from this initial project, these can be collectively referred to as Unix-like; Beyond the Linux distributions running on millions of cloud servers, Android, iOS, and MacOS are all Unix-like operating systems.
+The majority of operating systems in use today have been developed from this initial project, these can be collectively referred to as `Unix-like`; Beyond the Linux distributions running on millions of cloud servers, Android, iOS, and MacOS are all Unix-like operating systems.
 
 ## Linux is NOT an Operating System
 
-Linux is an operating system `kernel` - the part of the operating system that handles the interactions between hardware and software components. The Linux Kernel is included as the core component of many operating systems - which we call distributions of Linux. However, since these distributions are all quite similar and utilise the same kernel, they are collectively known as `Linux`.
+Linux is an operating system `kernel` - the part of the operating system that handles the interactions between hardware and software components. The Linux Kernel is included as the core component of many operating systems - which we call **distributions** of Linux. However, since these distributions are all quite similar, and utilise the same kernel, they are collectively known as `Linux`.
 
 ## Connecting to a Linux server
 
 Once you’ve deployed a local, or remote, server you need to connect to it in order to issue commands to it. The most common way to do this is using a protocol called `SSH` (`S`ecure `SH`ell).
 
-You can initiate an SSH connection in several ways, we're using the CLI, but the protocol is universal. There are popular apps dedicated to creating and managing SSH connections providing a GUI, such as Putty, which are very useful when you have to log into several different machines regularly.
+You can initiate an SSH connection in several ways, we're using the `CLI` (command line interface), but the protocol is universal. There are popular apps dedicated to creating and managing SSH connections providing a `GUI` (graphical user interface), such as `Putty`, which are very useful when you have to log into several different machines regularly.
 
 `OpenSSH` is also available by default in most popular OSes, but not always enabled. This means you can create an SSH connection from directly within your chosen CLI such as the Mac or Windows Terminal.
 
@@ -26,7 +26,7 @@ When you open an SSH connection to a remote server you're presented with the ser
 
 ***Repeated from - deploying-centOS-vm.md***
 
-The core of modern operating systems is a component called the kernel, which manages and controls access to hardware resources. However, the kernel is very complex, the raw lines of code that power your OS, so for normal humans to use the computer we need an interface that provides accessible ways to use with the system, and the interfaces interacts with the kernel on our behalf.
+The core of modern operating systems is a component called the `kernel`, which manages and controls access to hardware resources. However, the kernel is very complex, the raw lines of code that power your OS, so for normal humans to use the computer we need an interface that provides accessible ways to use with the system, and the interfaces interacts with the kernel on our behalf.
 
 The Windows desktop is an example of one of these interfaces, you click an icon, and an instruction is sent to the kernel to open this application from storage, which the kernel controls access to.
 
@@ -52,9 +52,9 @@ The Shell provides us with a command line interface into which we can enter our 
 
 ## Linux Shell Commands
 
-Controlling your computer entirely from the command line can be a challenging at first, if you've only ever used a mouse to navigate and open apps or files. Don't worry about memorising commands as you come across them; the ones you use most often are straight forward, and you will use them so often that they'll quickly become second nature.
+Controlling your computer entirely from the command line can be challenging at first if you've only ever used a mouse to navigate and open apps or files. Don't worry about memorising commands as you come across them, the important ones you will use so often that they'll quickly become second nature.
 
-Here are the first few commands we're going to use:
+Here are the first commands we're going to use:
 
 |Command|Function|
 |---|---|
@@ -62,13 +62,13 @@ Here are the first few commands we're going to use:
 |`cd`|Change directory|
 |`pwd`|Print working directory (show your location in the file system)|
 |`mkdir`|Make a new directory|
-|`touch`|Update access/modification times of a file (**also, often used to make a new file**)|
+|`touch`|Update access/modification times of a file (**often also used to make a new file**)|
 |`cp`|Copy file/directory|
 |`mv`|Move file/directory - also used to rename|
 |`rm`/`rmdir`|Delete file/delete directory|
 |`cat`|Used to read, concatenate, and create files|
 
-Before we try them out, if you've SSH'd into your VM, and nothing else, then your prompt should look like this: `[centos@localhost ~]$`. This prompt gives us a few bits of information `[current_user]@[system_name] [current_directory]`. The `$` is just the prompt waiting for our command, but the `$` does symbolise that we're currently logged in as a `standard` user.
+Before we try them out, if you've SSH'd into your VM, and done nothing else, then your prompt should look like this: `[centos@localhost ~]$`. This prompt gives us a few bits of information `[current_user]@[system_name] [current_directory]`. The `$` is just the prompt waiting for our command, but it does symbolise that we're currently logged in as a `standard` user.
 
 In our case the location shows as `~` (called a tilde), this represents your home location. By default, as a standard user, this is the only location in the filesystem that you have permission to access and modify. The `absolute path` to your home location is `/home/centos/`; the `~` symbol is simply a shortcut to that location.
 
@@ -99,7 +99,7 @@ Follow the below instructions to practice using the basic commands.
 19. Delete the sub-directory with `rmdir another_directory`
 20. Repeat the last two steps to go back to your home directory, but delete the `my_project` directory instead
 
-There is one (two) more very useful commands which provide you with information about other commands, including the various options and arguments which are supported or required for the command.
+There are two more useful commands which provide you with information about other commands, including the various options and arguments that are supported or required for the command.
 
 - `man`: Shows the manual for any command
 - `help`: Provides a more condensed reference page
@@ -121,7 +121,7 @@ Take the `ls` command which you've already seen, it lists the contents of the cu
 
 Two common options are
 
-- `-a`: All - Display all items including hidden items (with start with `.`)
+- `-a`: All - Display all items including hidden items (which start with `.`)
 - `-l`: Long list - Displays items in long-list format, which displays more information about each item.
 
 ```Bash
@@ -132,22 +132,21 @@ ls -a # List all items in the current directory
 ls -al # Combine options to customise the output
 ```
 
-You also saw that `ls` can list the contents of another directory without first navigating to it by providing the target location as an argument. Arguments are the values we want the command to operate upon, such as files (directories), services, users, etc.
+You also saw that `ls` can list the contents of another directory without first navigating to it by providing the target location as an `argument`. Arguments are the values we want the command to operate upon, such as files (directories), services, users, etc.
 
-Combine options and arguments to get the information you need:
+Combine `options` and `arguments` to get the information you need:
 
 ```Bash
 la -al /etc 
 ```
 
-The standard Linux command structure is:[command] [options] [arguments]
+The standard Linux command structure is: `[command] [options] [arguments]`
 
 |Command|Options|Arguments|
 |---|---|---|
 |`ls`|`-al`|`/etc`|
 
->The order of options and arguments can be switched
-
+>The order of options and arguments can often be switched
 
 ## Useful Shell Features
 
@@ -205,9 +204,9 @@ red
 blue
 ```
 
-2. Try running the following command: `sort colours.txt | uniq -c | sort -r | head -3` (breakdown below)
+2. Try running the following command: `sort colours.txt | uniq -c | sort -r | head -3` (*breakdown below*)
     - The `stdout` of each command is piped through to the `stdin` of the next, the output is not sent to the Terminal until the final step.
-3. Create your own file containing different items, e.g. fruits, names, foods. Try combinations of the above commands with pipes, to produce different outputs.
+3. Create your own file containing different items, e.g. fruits, names, foods. Try combinations of the above commands, with pipes, to produce different outputs.
 
 **Command breakdown**:
 
@@ -218,8 +217,11 @@ blue
 
 ## Linux Packages
 
-Package managers let you install and keep track of software on your
-machine. Different versions of Linux have different package managers: Debian based distributions, such as Ubuntu, use `apt` (Advanced Package Tool); Fedora based distributions, such as CentOS, use `dnf` (Dandified YUM).
+`Package managers` let you install and keep track of software on your
+machine. Different versions of Linux have different package managers:
+
+- `Debian` based distributions, such as `Ubuntu`, use `apt` (Advanced Package Tool)
+- `Fedora` based distributions, such as `CentOS`, use `dnf` (Dandified YUM).
 
 Some examples of common usage include
 
@@ -238,3 +240,5 @@ sudo dnf upgrade # Update installed packages
 ## Shell Scripting
 
 Scripting is the proces of creating a text file containing commands, which are then executed automatically, following any specified logic, when the file is executed as a program.
+
+TBC

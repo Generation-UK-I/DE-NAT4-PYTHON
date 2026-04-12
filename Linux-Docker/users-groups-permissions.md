@@ -1,6 +1,6 @@
-## Users, Groups, and Permissions
+# Users, Groups, and Permissions
 
-### Linux User Accounts
+## Linux User Accounts
 
 User accounts in a Linux system are stored in a file called `passwd` located in the `/etc` directory, view it with `sudo cat /etc/passwd`.
 
@@ -26,26 +26,26 @@ centos:x:1000:1000:[comment]:/home/centos:/bin/bash
 
 - `centos`: Username.
 - `x`: Placeholder for the password, which is located in a different file (`shadow`)
-- `1000:1000`: (UserID:GroupID) Every user account has a unique user ID number, which simply increments for each new user, the next one will be 1001; Each user also has an associated group, which also has a unique ID number; These numbers do not have to match.
-- `[comment]`: Not used in our example, but is used to enter optional information. Examples include the user's full name, or deparment.
+- `1000:1000`: (UserID:GroupID) Every user account has a unique user ID number, which simply increments for each new user, the next one will be 1001; Each user also has an associated group, which also has a unique ID number. *These numbers start the same, but do not have to match*.
+- `[comment]`: Not used in the example on your VM, but it can be used to enter optional information. Examples include the user's full name, or deparment.
 - `/home/centos`: The path to the user's home directory. 
 - `/bin/bash` Path to the user's default shell
 
->Notice only two entries reference the Bash Shell, `root` and `centos`. The other accounts that end in `/sbin/nologin` are system accounts used bu services, and not intended for human users to access.
+>Notice only two entries reference the Bash Shell, `root` and `centos`. The other accounts that end in `/sbin/nologin` are system accounts used by services, and not intended for human users to access.
 
-### Linux Groups
+## Linux Groups
 
-Groups on a computer system are a common feature for making administration easier. They allow us to assign permissions or carry out admin and management tasks once, and have them apply to all of the members in a group. View the groups with: `cat /etc/group`
+`Groups` on a computer system are a common feature for making administration easier. They allow us to assign permissions or carry out admin and management tasks once, and have them apply to all of the members in a group. View the groups with: `cat /etc/group`
 
-A group is created for each new user, therefore every Linux user account is in at least one group which they’re in control of. The user can add other users to their group to share their files if they wish.
+A group is created for each new user, therefore every Linux user account is in at least one group which they’re in control of. The user can add other users to their group to share their files if they wish. Users can also be added to additional groups, providing access to other resources.
 
-You can also create supplemental groups, such as for business departments, functions, or projects, then add the users relevant to that group into it. You can then assign permissions to the group permitting access to the department or project's data and resources.
+You can create supplemental groups (using the `groupadd` command), such as for business departments, functions, or projects, then add the relevant users to that group (using the `usermod` command). You can then assign permissions to the group, permitting access to the department or project's data and resources to all members.
 
-### Linux Permissions
+## Linux Permissions
 
-Everything in Linux is a file (more on that later), every file has an owner, and is within a group. Typically the owner is the person who created the file, and the file will be in their group by default. Although we can change this behaviour if we need to.
+**Everything in Linux is a file** (more on that later), every file has an `owner`, and is within a `group`. Typically the owner is the person who created the file, and the file will be in their group by default. (*Although we can change this behaviour if we need to*).
 
-If you still have a directory containing some test files move into it, or create them if needed. Type `ls -l` and you should see an output like this:
+To view some permissions, if you still have a directory containing some test files move into it, or create them if needed. Type `ls -l` and you should see an output like this:
 
 ```Bash
 -rw-r--r--. 1 centos centos    0 Apr 12 00:35 file1
@@ -58,7 +58,7 @@ If you still have a directory containing some test files move into it, or create
 Here's a breakdown of one line: `-rwxrwxrwx. 1 centos centos 2288 Apr 12 13:58 pale_blue_dot`
 
 - `-rwxrwxrwx`: Permission string NOTE: I've changed mine from the default for illustration purposes.
-  - `-`: The first dash represents the type of file, in this case it's a standard file, but you will see `d` for directory, and others that our beyond our scope.
+  - `-`: The first dash represents the type of file, in this case it's a `standard` file, but you will see `d` for `directory`, and others values that our beyond our scope.
   - `rwx`: These values represent the permissions that we can assign to our files.
     - `r`: read the file
     - `w`: write to the file (edit/save)
@@ -68,34 +68,39 @@ Here's a breakdown of one line: `-rwxrwxrwx. 1 centos centos 2288 Apr 12 13:58 p
     - The second block represents the users who are in the same `group` as the file
     - The third block represents `other` users, who are not the owner, or in the same group.
 - `1`: Number of hard-links (out of scope for our purposes)
-- `centos centos`: The file's owner, and the group it is in.
+- `centos centos`: The file's `owner`, and the `group` it is in.
 - `2288`: The size of the file
 - `Apr 12 13:58`: Last modified timestamp (`touch` updates this)
 - `pale_blue_dot`: File name
 
-#### Modifying Permissions
+### Modifying Permissions
 
 We can modify the permissions of a file in Linux in two different ways: `Absolute`, and `Symbolic` modes, but both options use the command: `chmod`.
 
-##### Absolute Mode
+#### Absolute Mode
 
-Absolute mode uses `Octal` numbers to represent the three user entities (`owner`/`group`/`others`), which can be calculated using three bits of binary. This is a bit out of scope, feel free to skip to `symbolic` mode, but if you're interested...
+Absolute mode uses `Octal` numbers to represent the three user entities (`owner`/`group`/`others`), which can be calculated using three bits of binary.
 
-- Three binary bits _ _ _ align with the three permissions r w x; If the bit is 1, the user has that permission, if it's 0 they don't.
+>This is a bit out of scope, feel free to skip to `symbolic` mode, but if you're interested...
+
+- Three binary bits _ _ _ align with the three permissions r w x; If the bit is `ON` (1), the entity has that permission, if it's `OFF` (0) they do not have that permission.
 - The three bits are in the 4, 2, 1 positions, so if the read bit is on, then it has a value of 4.
 - Any combination of those three bits will give us a different value, all three permissions would be `4 + 2 + 1 = 7`
 
 |Permissions|Values|Sum|
 |---|---|---|
 |r w x|4+2+1|7|
-|r w -|4 2 0|6|
-|r - x|4 0 1|5|
-|r - -|4 0 0|4|
-|- w x|0 2 1|3|
-|- w -|0 2 0|2|
-|- - x|0 0 1|1|
+|r w -|4+2+0|6|
+|r - x|4+0+1|5|
+|r - -|4+0+0|4|
+|- w x|0+2+1|3|
+|- w -|0+2+0|2|
+|- - x|0+0+1|1|
+|- - -|0+0+0|0|
 
 The above table allows us to represent any combination of Read, Write, and Execute, with a single number between 0-7.
+
+>`Octal`, also known as Base-8, is a number system which uses only the values 0-7 (8 different digits), which can be represented with three bits of binary, as seen. `Binary` uses 0-1 and is also known as Base-2; Decimal uses 0-9, also known as Base-10; Hexadecimal uses 0-F, also known as Base-16. Why do you think Octal and Hex are prevalent in computing?
 
 The above table refers to a single group of three, for example just the permissions for the owner of the file, but the group and other permissions work just the same; You can define all of the permissions for all users with three numbers, such as 544 (r-xr--r--).
 
@@ -107,7 +112,7 @@ sudo chmod 777 file1 # Assign rwx permissions for all user types.
 - `777`: The Absolute permissions - DO NOT USE 777, this gives everyone full access.
 - `file1`: The filename provided as an argument.
 
-##### Symbolic Mode
+#### Symbolic Mode
 
 Symbolic mode is arguably the easier way to manage permissions, although you may need several commands to achieve the same thing as one in absolute mode.
 
@@ -137,7 +142,7 @@ chmod g-w file2 # Remove the execute permission from file2 for the users in the 
 chmod o=rw my_file # Set the permissions for other users to read and write against my_file
 ```
 
-#### Modifying Owner and Groups
+### Modifying Owner and Groups
 
 Every file has an owner user and a group, you can modify this with the `chown` command: `chown [new_user]:[new_group] [filename]`
 
@@ -148,7 +153,7 @@ sudo chown centos:centos file1 # Change owner and group back to centos
 ls -l # Confirm owner/group change
 ```
 
-### Sudo
+## Sudo
 
 You will have come across many examples of commands which are preceded with the word sudo (`S`uper `U`ser `Do`). This allows us to run a command with root user privileges, without having to switch to the root user account.
 

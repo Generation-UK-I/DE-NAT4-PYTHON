@@ -144,4 +144,4 @@ The `Take Snapshot...` dialog appears, give your snapshot a meaningful name and 
 You now have a functional, up to date CentOS Linux virtual machine which we can use to explore a number of technologies, but first we need to learn how to use Linux.
 
 - [Back to main page](./README.md)
-- [Introduction to Linux](NOT YET DONE)
+- [Introduction to Linux](./introduction-linux.md)
