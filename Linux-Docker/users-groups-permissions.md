@@ -73,6 +73,12 @@ Here's a breakdown of one line: `-rwxrwxrwx. 1 centos centos 2288 Apr 12 13:58 p
 - `Apr 12 13:58`: Last modified timestamp (`touch` updates this)
 - `pale_blue_dot`: File name
 
+### Users and Groups Lab
+
+Practice working with user accounts and groups by completing this lab:
+
+[Users and Groups Lab](./users-groups-lab.md)
+
 ### Modifying Permissions
 
 We can modify the permissions of a file in Linux in two different ways: `Absolute`, and `Symbolic` modes, but both options use the command: `chmod`.
@@ -109,7 +115,7 @@ sudo chmod 777 file1 # Assign rwx permissions for all user types.
 ```
 
 - `chmod`: The change mode command (referring to file mode bits)
-- `777`: The Absolute permissions - DO NOT USE 777, this gives everyone full access.
+- `777`: The Absolute permissions - DO NOT USE `777`, this gives everyone full access.
 - `file1`: The filename provided as an argument.
 
 #### Symbolic Mode

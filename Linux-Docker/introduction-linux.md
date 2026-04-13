@@ -239,6 +239,50 @@ sudo dnf upgrade # Update installed packages
 
 ## Shell Scripting
 
-Scripting is the proces of creating a text file containing commands, which are then executed automatically, following any specified logic, when the file is executed as a program.
+Scripting is the process of creating a text file containing commands, which are then executed automatically, following any specified logic, when the file is executed as a program.
 
-TBC
+You have already written some scripts: You have spent time working with Python, and we discussed writing code in `interactive` mode, where you type one command at a time. But primarily we use `script` mode, where you can write all of your commands, and have Python interpret the whole file one line at a time. This means that in addition to a programming language, Python is also an example of a scripting language.
+
+Linux commands can also be written in a script, these script files will usually end in `.sh`, *but remember the extension is just for humans*.
+
+Pretty much anything you can do with a series of commands, can be automated with a script. Bash scripting also supports many different data structures and logic, allowing you to make lists, variables, loops, etc. to make complete applications with Shell scripts.
+
+>You will do this in the lab below, but it is important to point out: you can `read` a file with the `r` permission; you can `edit` a file with the `w` permission; but to run a file as an app (`execute` it) you require the `x` permission - Review the users, groups, and permissions guide if you're unfamiliar with this.
+
+## Scripting Lab
+
+Below is an example of a script to automatically install and configure a web server.
+
+1. Create a new file, open it with your text editor of choice, copy the following text into it.
+
+```bash
+#! /bin/bash # Which interpreter to run i.e. Bash
+
+sudo dnf update -y # Update package info
+
+sudo dnf install httpd -y # Install the Apache webserver
+
+sudo chown apache:apache /var/www/* # Give the Apache user and group ownership of the files.
+
+sudo echo "Hello from your webserver" > index.html # Create an initial index.html document
+
+sudo cp index.html /var/www/html/ # Copy index.html into the directory httpd serves files from
+
+sudo systemctl start httpd # Start the httpd application
+
+sudo systemctl enable httpd # Add a symlink to the app, so it starts during boot
+
+echo "Your web server has started. Access it by typing your VMs IP address into your browser." # Echo a success message to the user.
+```
+
+2. Save the file as `deploy_web-svr.sh` and close your editor.
+
+3. In order to use the script you need to execute it as an app, i.e. you need to add the execute `x` permission. To do so type: `chmod u+x deploy_web-svr.sh`
+
+4. Use `ls -l` to confirm the execute permission has been assigned.
+
+5. Run your script with `./deploy_web-svr.sh`
+
+6. You will see the operations being carried out, and it should end with the success message. When you see this you can open your browser, and type your VMs IP address into the address bar. You should see "Hello from your webserver".
+
+**Challenge** - Add some real HTML to your website.

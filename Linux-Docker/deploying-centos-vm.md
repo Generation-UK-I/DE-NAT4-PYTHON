@@ -22,17 +22,21 @@ The VM has been created using the VirtualBox hypervisor, which is one of many co
 
 ### Accessing Your Virtual Machine
 
-VirtualBox has some annoying default behaviours, one is that it doesn't integrate very well with the host system out of the box. This means that things like copy/paste don't work from your host to the VM if you use it through the '*virtual monitor*'. Another thing is that when you click on the screen to interact with your VM, it captures your mouse within the screen and you can't get out again; In order to 'release' your mouse pointer you need to press the right-CTRL key, which many laptops don't actually have, to save keyboard space.
+VirtualBox has some annoying default behaviours, one is that it doesn't integrate very well with the host system out of the box. This means that things like copy/paste don't work from your host to the VM if you use it through the '*virtual monitor*'. Another thing is that when you click on the screen to interact with your VM, it captures your mouse within the screen and you can't get out again; In order to 'release' your mouse pointer you need to press the `RIGHT-CTRL` key, which many laptops don't actually have, to save keyboard space.
 
-So, eventually we're going to connect to our VM in a different way, using `SSH` through a terminal, which is actually more aligned with how we connect to remote machines in the real-world. But to do this we need to know the VMs IP address on your local network (LAN), and the quickest way to get it is to just log in through the virtual screen once, check the IP, then log out again.
+So, eventually we're going to connect to our VM in a different way, using `SSH` through our Terminal, which is actually more aligned with how we connect to remote machines in the real-world. But to do this we need to know the `IP address` the VM has been given on your local network (`LAN`) from your `DHCP` server. The quickest way to get it is to just log in through the virtual screen once, check the IP, then log out again.
+
+>There are other ways we could do this, such as checking the DHCP server records/logs, carrying out a host scan with a tool such as `nmap`, or in an enterprise environment you likely have a dashboard which tracks deployed devices and system info.
 
 #### Logging in
 
 On the login page you're prompted for `localhost login: _`, enter the username: `centos`
 
-You're prompted for the `Password:`, this is also `centos`, exactly the same as the username. But you will not see anything on the screen to indicate that you are typing - not even asterisks (*to prevent shoulder surfing attacks*); just ensure you type it carefully.
+You're prompted for the `Password:`, this is also `centos`, exactly the same as the username. **But** you will not see *anything* on the screen to indicate that you are typing - not even asterisks, so ensure you type it carefully.
 
-If successful your prompt will change to `[centos@localhost ~]$`
+> This is to prevent `shoulder surfing` attacks - someone looking over your shoulder wont even see how long your password is.
+
+If successful your prompt will change to `[centos@localhost ~]$` indicating you've logged into Linux.
 
 - `centos` = username
 - `localhost` = hostname
@@ -67,21 +71,27 @@ Now you should be logged into your Linux CentOS virtual machine, indicated by a 
 [centos@localhost ~]$
 ```
 
-You've now logged into the VM via your Terminal, rather than the VirtualBox 'screen', which is how you're likely to connect to remote devices in the real world. The Terminal is also integrated with your Windows environment, allowing things like copy & paste.
-
-When you want to use you computer you sit in front of the monitor and use the keyboard and mouse, all of which are plugged into the device. However, the vast majority of Linux computers are in data centers (and most of them are virtual) with nobody sat in front of them, logged directly in. To use these computers we need to log into the Shell remotely, which is what you just did; using SSH, you opened the Bash Shell for your CentOS VM through the Windows' Terminal.
+You've now logged into the VM via your Terminal, rather than the VirtualBox 'screen', this is how you're likely to connect to remote devices in the real world. The Terminal is also integrated with your Windows environment, allowing things like copy & paste.
 
 ### The Shell
 
-The core of modern operating systems is a component called the kernel, which manages and controls access to hardware resources. However, the kernel is very complex, the raw lines of code that power your OS, so for normal humans to use the computer we need an interface that provides accessible ways to use with the system, and the interfaces interacts with the kernel on our behalf.
+When you want to use your computer you sit in front of the monitor, and provide input via the keyboard and mouse, all of which are plugged directly into the device. However, the vast majority of Linux computers are in data centers (*and most of them are virtual*) with nobody sat in front of them logged directly in.
 
-The Windows desktop is an example of one of these interfaces, you click an icon, and an instruction is sent to the kernel to open this application from storage, which the kernel controls access to.
+To use these computers we need to log into their Shell remotely, which is what you just did; You opened the `Bash Shell` for your CentOS VM, through the Windows' `Terminal`, using `SSH`.
+
+>In the real world you will likely authenticate using `asymmetric encryption keys`, which are much more secure than username/password authentication.
+
+The core of modern operating systems is a component called the kernel, which manages and controls access to hardware resources. However, the kernel is very complex, it contains the raw lines of code that interact with your hardware.
+
+For normal humans to use the computer we need an interface that interacts with the kernel on our behalf, providing accessible ways to use the system.
+
+The Windows desktop is an example of one of these interfaces, you click an icon, and an instruction is sent to the kernel to access the storage and open the application.
 
 Although you can install one, Linux servers typically do not have a desktop environment for a few reasons:
 
 - The desktop uses system resources unnecessarily - most Linux servers are in data centers, and nobody is sat in front of it looking at a monitor, so why waste the RAM and CPU resources?
-- The additional software components required for the desktop introduce greater potential for software bugs.
-- Desktops are slow
+- The additional software components required for a desktop environment introduces greater potential for software bugs.
+- Desktops are slower (*when you build confidence with the CLI*)
 
 The interface that Linux servers use is called the Shell, the most common version is called `Bash` (`B`ourne `A`gain `SH`ell).
 
@@ -93,13 +103,13 @@ A shell can do the same things your GUI environment does:
 - Code
 - Play Star Wars Episode IV
 
->Windows `CMD` and `PowerShell` are also examples of Shells (*the hint is in the name*). It is possible to install Windows Server without a desktop, and just use PowerShell to interact with it - this makes the installation a lot smaller.
+>Windows `CMD` and `PowerShell` are also examples of Shells (*the clue is in the name*). It is possible to install Windows Server without a desktop, and just use PowerShell to interact with it - this makes the installation a lot smaller.
 
-The Shell provides us with a command line interface into which we can enter our commands to operate and control our system. Therefore, learning to use the Shell, is basically learning to use Linux, so we'll return to it in a separate guide coming up next. First we need to do a little more config on our VM, and learn about one more feature of VirtualBox.
+The Shell provides us with a command line interface into which we can enter our Bash commands to operate and control our Linux system. Therefore, learning to use the Shell, is basically learning to use Linux, so we'll return to it in a separate guide coming up next. First we need to do a little more config on our VM, and learn about one more feature of VirtualBox.
 
 ### Updating Linux
 
-We'll review how this works in our next lesson, but suffice to say that the VM image you used is a bit out of date, so we need to update it before we start using it for any real work.
+We'll review how this works in our next lesson, but suffice to say that the VM image you've used is a bit out of date, so we need to update it before we start using it for any real work.
 
 Do so by typing `sudo dnf update -y`
 
@@ -108,9 +118,9 @@ Do so by typing `sudo dnf update -y`
 - `update`: The operation to be carried out
 - `-y`: Without this option you will be prompted to confirm the operation, this basically pre-answers that check
 
-There is one more useful package that is recommended to install before we proceed to learning to use Linux, called `Nano`.
+There is one more useful package that is recommended to install before we proceed, called `Nano`.
 
-Nano is a lightweight CLI based text editor, there are other text editor options, for example `VI`/`VIM` is included by default in most Linux distributions. However, VI is the work of the Devil!!! It's very difficult to use efficiently as a beginner, but Nano is a lot more accessible, and uses `CTRL+[KEY]` commands similar to Windows shortcuts.
+Nano is a lightweight CLI based text editor, there are other editors available, for example `VI`/`VIM` is included by default in most Linux distributions. However, *VI is the work of the Devil!!!*, and it's very difficult to use efficiently as a beginner (*you have to switch between INSERT mode and COMMAND mode, and you can't use arrow keys!*). Nano is a lot more accessible, and uses `CTRL+[KEY]` commands similar to Windows shortcuts.
 
 >The shortcut commands in Nano are not the same as Windows, for example `CTRL+C`/`CTRL-V` doesn't copy/paste, `CTRL+S` doesn't save. Be sure to look at the command prompts at the bottom of the Nano page.
 
@@ -118,22 +128,22 @@ Install Nano with `sudo dnf install nano -y`
 
 This command is similar to the last one, `sudo`, `dnf`, and `-y` are identical, but we want to `install` instead of `update`, and we're providing an argument `nano`, to specify a particular package.
 
-Nearly done, one last step...
+Nearly done, one last important thing...
 
 ## Snapshots
 
-A virtual machine could also be described as a **software defined computer**, and software is comprised of data files. So your virtual machines is actually just a collection of files, and one of these files is the virtual hard disk, which contains the VMs' files.
+A virtual machine could also be described as a **software defined computer**, and software is comprised of data files. So your virtual machine is actually just a collection of files, and one of these files is the virtual hard disk, which contains the VMs' files.
 
-A snapshot is simply a copy of this hard disk file, which contains all of the data on the virtual hard disk **at a point in time**. If you later encounter a problem with your virtual machine, you can restore the snapshot and recover the VM to whenever the snapshot was taken.
+A snapshot is simply a copy of this hard disk file and some config files, which contains all of the data on the virtual hard disk **at a point in time**. If you later encounter a problem with your virtual machine or something breaks, then you can restore and recover the VM to whenever the snapshot was taken.
 
 Snapshots provide several benefits:
 
 - We can take as many snapshots as we want, creating regular recovery points.
-- Subsequent snapshots after the first only need to capture the changes since the preceding one, and most of the files on the system do not change frequently, so snapshots are typically quite small (this is known as incremental backup).
-- In our case you establish multiple 'timelines' for your VM, based on the different projects we work on, and jump between them easily by restoring the relevant snapshot.
+- After the first one, subsequent snapshots only need to capture the changes since the preceding one, and most of the files on the system do not change frequently. Therefore snapshots are typically quite small (this is known as incremental backup).
+- In our case you can establish multiple '*timelines*' for your VM, based on the different projects you work on with the relevant apps and dependencies installed, then jump between them easily by restoring the relevant snapshot.
 - You can take a snapshot of a running VM, which allows you to restore it directly to a running state rather than waiting for it to boot normally.
 
-With all of the preceding steps completed, leave your VM running, but return to the VirtualBox Manager window. Identify your VM on the left, and click the button to the right of the entry ![VM-snapshots-access](./imgs/VM-snapshot-access.jpg)
+With all of the preceding steps completed, leave your VM running, but return to the VirtualBox Manager window. Identify your VM on the left, and click the button to the right of the entry with a little menu on it![VM-snapshots-access](./imgs/VM-snapshot-access.jpg)
 
 On the Snapshots page click the `Take` button with the green plus sign ![snapshot-page](./imgs/VM-snapshot.jpg).
 
@@ -141,7 +151,7 @@ The `Take Snapshot...` dialog appears, give your snapshot a meaningful name and 
 
 ---
 
-You now have a functional, up to date CentOS Linux virtual machine which we can use to explore a number of technologies, but first we need to learn how to use Linux.
+You now have a functional, up to date CentOS Linux virtual machine, which we can use to explore a number of technologies, but first we need to learn how to use Linux.
 
 - [Back to main page](./README.md)
 - [Introduction to Linux](./introduction-linux.md)
