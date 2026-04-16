@@ -288,4 +288,4 @@ with open("diary.txt", "r") as file:
 
 ---
 
-The operations and functions in this guide will be particularly useful for Sprint 3 of your mini-project; However, if you're struggling, an additional sample diary app has been provided which may provide hints for your own development tasks. [Review it here](./data-persistence-sample-app.md).
+The operations and functions in this guide will be particularly useful for Sprint 3 of your mini-project; However, if you're struggling, an additional sample diary app has been provided which may offer hints for your own development tasks. [Review it here](./data-persistence-sample-app.md).
