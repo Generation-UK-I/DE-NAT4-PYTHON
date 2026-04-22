@@ -1,0 +1,21 @@
+{
+    "name": "Jack Sparrow",
+    "role": "Pirate Captain",
+    "ship": "Black Pearl",
+    "bounty": 5000000,
+    "traits": [
+        "Cunning",
+        "Resourceful",
+        "Unpredictable"
+    ],
+    "allies": [
+        {
+            "name": "Will Turner",
+            "role": "Blacksmith turned Pirate"
+        },
+        {
+            "name": "Elizabeth Swann",
+            "role": "Pirate Lord of the South China Sea"
+        }
+    ]
+}

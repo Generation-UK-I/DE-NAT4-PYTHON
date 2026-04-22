@@ -1,0 +1,30 @@
+{
+    "users": [
+      {
+        "user_id": 1,
+        "name": "Alice",
+        "activities": [
+          {"type": "login", "timestamp": "2024-01-01T12:00:00Z"},
+          {"type": "purchase", "item": "Laptop", "amount": 1200},
+          {"type": "purchase", "item": "Books", "amount": 45}
+        ]
+      },
+      {
+        "user_id": 2,
+        "name": "Bob",
+        "activities": [
+          {"type": "login", "timestamp": "2024-01-02T15:00:00Z"},
+          {"type": "login", "timestamp": "2024-01-02T16:00:00Z"},
+          {"type": "purchase", "item": "Phone", "amount": 800}
+        ]
+      },
+      {
+        "user_id": 3,
+        "name": "Charlize",
+        "activities": [
+          {"type": "login", "timestamp": "2024-01-01T12:00:00Z"},
+          {"type": "login", "timestamp": "2024-02-02T12:00:00Z"}
+        ]
+      }
+    ]
+}

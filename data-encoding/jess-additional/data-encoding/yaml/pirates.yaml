@@ -1,0 +1,10 @@
+pirates:
+  - name: Jack Sparrow
+    ship: Black Pearl
+    bounty: 1000000
+  - name: Blackbeard
+    ship: Queen Anne's Revenge
+    bounty: 1200000
+  - name: Davy Jones
+    ship: Flying Dutchman
+    bounty: 1500000

@@ -1,0 +1,24 @@
+{
+    "library": {
+      "books": [
+        {
+          "title": "Python Programming",
+          "author": {
+            "first_name": "John",
+            "last_name": "Doe",
+            "birth_year": 1975
+          },
+          "genres": ["Programming", "Technology"]
+        },
+        {
+          "title": "Data Science Handbook",
+          "author": {
+            "first_name": "Jane",
+            "last_name": "Smith",
+            "birth_year": 1980
+          },
+          "genres": ["Data Science", "Machine Learning"]
+        }
+      ]
+    }
+  }
