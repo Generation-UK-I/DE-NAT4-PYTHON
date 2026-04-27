@@ -50,14 +50,15 @@ If possible within the timescale, the client would also like:
 
 >It is recommended that you read all of the pseudo code before commencing your project.
 
-```
+```text
+
 START APP
     CREATE ACTIVE USER LIST
     CREATE DISABLED USER LIST
 
 DISPLAY MENU:
     MENU ITEM 1 = ADD USER
-    MENU ITEM 2 = VIEW USERS ACTIVE/DISABLED
+    MENU ITEM 2 = VIEW ACTIVE AND DISABLED USER LISTS
     MENU ITEM 3 = ENABLE/DISABLE USERS
     MENU ITEM 0 = EXIT APP
 
@@ -76,7 +77,6 @@ IF MENU ITEM 3
 
 IF MENU ITEM 0
     EXIT APP
-
 
 # STRETCH GOAL
 
