@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  db:
+    image: docker.io/postgres:latest
+    container_name: my-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+  adminer:
+    image: docker.io/adminer
+    container_name: adminer
+    restart: always
+    ports:
+      - 8080:8080
