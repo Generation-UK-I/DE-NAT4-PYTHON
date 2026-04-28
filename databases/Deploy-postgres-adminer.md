@@ -42,3 +42,16 @@ volumes:
     - POSTGRES_PASSWORD: "mysecretpassword"
 
 >You can input connection details manually through Adminer, but **DO NOT** hard code credentials into your code; Use an `.env` file - explained in main py-to-db tutorial.
+
+**Troubleshooting:**
+
+If the above deployment fails try creating a `.env` file in the same directory as your `docker-compose.yml`, add this line to it: `POSTGRES_PASSWORD=mysecretpassword`, save and close.
+
+Then type:
+
+```bash
+sudo docker compose down -v
+sudo docker compose up -d
+```
+
+- `-v`: Deletes any created volumes for the container.
