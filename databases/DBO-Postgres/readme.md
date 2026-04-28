@@ -4,24 +4,7 @@ Pretty much every organisation that holds data will have it in a database which 
 
 There are various different database options available, which are often tailored to specific use cases, however they all fit into one of two categories, SQL and NoSQL.
 
-## Relational Databases (SQL)
-
-### RDBMS
-
-The software that lets you create, manage, and query databases, is called a **relational database management system**. Some popular ones include:
-
-- MySQL
-- PostgreSQL
-- Microsoft SQL Server
-
-### Practical 1
-
-[Click here for the Practical 1 guide](Practical_1.md)
-
-- Restore VM from Snapshot
-- Install MySQL
-
-### SQL Databases
+## Relational Databases (SQL) Databases
 
 Structured Query Language (SQL) is a database type which was developed in the 70’s, based on theoretical relational data models proposed in the 60’s. SQL databases are also known as relational databases.
 SQL databases store data in tables which are defined by a schema. Each data item entered into the table must adhere to this schema.

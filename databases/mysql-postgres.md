@@ -11,7 +11,7 @@ There are a number of different Relational Database Management Systems (RDBMS), 
 
 ## DE-NAT4 Databases - April '26
 
-As you know, we've been trying to implement a more practical approach to the technical modules, in the case of databases Generation has a module which we've used for other programs, but unfortunately it is based on MySQL. 
+As you know, we've been trying to implement a more practical approach to the technical modules, in the case of databases Generation has a module which we've used for other programs, but unfortunately it is based on MySQL.
 
 Luckily, the syntax between them is very similar, but not identical. Therefore, you should read through this guide to learn about SQL databases, but also bear in mind the following differences between MySQL and Postgres.
 
