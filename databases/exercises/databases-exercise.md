@@ -44,12 +44,18 @@ services:
       - "5432:5432"
     environment:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql
+
   adminer:
     image: docker.io/adminer
     container_name: adminer
     restart: always
     ports:
       - 8080:8080
+
+volumes:
+  postgres_data:
 ```
 
 6. Create a new file called `.env`, open it with your preferred text editor. Copy the following, save and quit.
