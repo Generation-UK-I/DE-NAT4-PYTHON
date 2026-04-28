@@ -27,7 +27,6 @@ Use these instructions if you have deployed a CentOS VM with Docker installed.
 1. Log into your VM with SSH from your Terminal and move to your home directory
 2. Verify Docker is running with `docker --version` or `sudo docker ps`
 3. Remove any running containers from previous sessions
-   - Run `docker images ls` - you should have "postgres" and "adminer" in the list
    - Stop any running containers from previous sessions with `docker stop <container_name>`
    - Stop any running containers from previous sessions with `docker rm <container_name>`
 4. Create a new directory for your database deployment, and move into it.
