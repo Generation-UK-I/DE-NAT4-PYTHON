@@ -25,13 +25,17 @@ DROP DATABASE db_name;
 
 Recall the use cases for the above commands:
 
-- `CREATE DATABASE db_name`: This SQL statement creates an empty database for you to use. This is where you can store data, manage tables... loads of things! Type this into your terminal and see what happens!
+- `CREATE DATABASE db_name`: This SQL statement creates an empty database for you to use. This is where you can create and manage tables, store data records, etc. Type this into your SQL Command field and execute.
 
-![Create Database Example](img/create-database.png)
+```sql
+CREATE DATABASE coffee_shop;
+```
 
 - `DROP DATABASE db_name`: Unhappy with your database? Use this command to delete the database, including all of it's content' permanently. ***NOTE: This is irreversible, so use with caution. Once you have deleted your database, you can use `SHOW DATABASES` to confirm its deletion.***
 
-![Drop Database Example](img/drop-database.png)
+```sql
+DROP DATABASE coffee_shop;
+```
 
 When you are finished practicing each of the commands, try answering the reflection questions in the next section.
 
